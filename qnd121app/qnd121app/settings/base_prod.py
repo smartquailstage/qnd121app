@@ -350,7 +350,7 @@ MIDDLEWARE = [
 
 
 
-ROOT_URLCONF = 'qnd41app.urls'
+ROOT_URLCONF = 'qnd121app.urls'
 LOCALE_PATHS =  (
     os.path.join(BASE_DIR, 'locale/'),
 )
