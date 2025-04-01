@@ -450,7 +450,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'qnd41app.wsgi.application'
+WSGI_APPLICATION = 'qnd121app.wsgi.application'
 
 WAGTAIL_ADMIN_BASE_URL =  os.environ.get('DOMAINS')
 WAGTAILIMAGES_MAX_UPLOAD_SIZE = 5 * 1024 * 1024 * 1024  # 5 GB en bytes
