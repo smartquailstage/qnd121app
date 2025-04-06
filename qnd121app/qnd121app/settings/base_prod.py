@@ -24,6 +24,7 @@ if SECRET_KEY is None:
 # Application definition
 
 INSTALLED_APPS = [
+   
     "unfold",  # before django.contrib.admin
     "unfold.contrib.filters",  # optional, if special filters are needed
     "unfold.contrib.forms",  # optional, if special form elements are needed
@@ -31,31 +32,22 @@ INSTALLED_APPS = [
     "unfold.contrib.import_export",  # optional, if django-import-export package is used
     "unfold.contrib.guardian",  # optional, if django-guardian package is used
     "unfold.contrib.simple_history",
-  # optional, if django-simple-history package is used
-    #'usuarios',
-    #'baton',
-    #'editorial_literaria',
-    #'account',
-    #'courses',
-    #'courses_exams',
-    #'card_test',
-    #'thumbnails',
-    #'cart',
-   
+
+    'parler',
     'django.contrib.contenttypes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-   # 'django.contrib.sites',
-    #'django_comments',
-    #Wagtail Inicials
-    'core',
     
-    #'wagtail',
+
+
+
+    'core',
     'wagtail',
     'wagtailmedia',
+    "wagtail_modeladmin",
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'django.contrib.humanize',
@@ -66,98 +58,55 @@ INSTALLED_APPS = [
     'wagtail.documents',
     'wagtail.images',
     'wagtail.search',
-    
-    'wagtail.locales',
-    'rosetta',
-    #'wagtail.contrib.settings',
-    
+   # 'wagtail.locales',
+    'wagtail_localize.locales',
+    'rosetta',   
     'wagtail.admin',
-   # 'wagtail.core',
-   # 'wagtail.contrib.settings',
     'wagtail.contrib.routable_page',
-    #'wagtail.contrib.modeladmin',
-    #'wagalytics',
-    #'wagtailfontawesome',
     "wagtail_localize",
-    #"wagtail_localize.locales",
-    #'wagtail_ai',
     'wagtailgmaps',
     'wagtailmenus',
-    #'wagtail.contrib.modeladmin',
+
+
+
+   
+    #'subscription',
+
     'django_social_share',
-    'mailing',
     'taggit',
-    #'proyectos',
-   # 'students',
-  #  'webapp_0',
-   # 'actividades_espacio_publico',
-  #  'streams',
     'widget_tweaks',
     'django_forms_bootstrap',
-
-   # 'datetimewidget',
-   #SMARTQUAIL-BUSINESS-CONSULTING
-    #'shop',
-    #'coupons',
-    #'cart',
-    #'todo_en_orden',
-    #'coupons',
-    #'orders',
-    #'contracts',
-    #'services',
-    #'cart',
-    #'cart_c',
-    #'payment',
-    #'django_phonenumbers',
-    #'phonenumber_field',
-    #'shop',
-    #'cart',
-
-
-
-    'sbmshop',
-    'sbmorders',
-    'sbmcoupons',
-    'sbmpayments',
-
-    'sblcart',
-    'sblshop',
-    'sblorders',
-
-    
-    'sbtcart',
-    'sbtshop',
-    'sbtorders',
-
- 
-
-    'sbacart',
-    'sbashop',
-    'sbaorders',
-
     'bootstrap4',
-    'webapp',
     'social_django',
     'sorl.thumbnail',
-    #'students',
     'embed_video',
     'qr_code',
     'storages',
-    #'actions',
     'boto3',
-   
-    #'memcache_status',
     'rest_framework',
     'ckeditor',
-   # 'js_blog_app',
     'wagtail.contrib.settings',
     "wagtail_ai",
-    
-    "bootstrap_datepicker_plus",
 
-    
-    #'baton.autodiscover',
+    'localflavor',
    
+    'jquery',
+    'phone_field',
+    'phonenumber_field',
+    'bootstrap5',
+
+    'bootstrap_datepicker_plus',
+     "webapp",
+      'shop',
+    'orders',
+    'payment',
+    'coupons',
+    #WEBAPP
+    #'wagtail_modeltranslation',
+    #'wagtail_modeltranslation.makemigrations',
+    #'wagtail_modeltranslation.migrate',
+
+  
 ]
 
 
