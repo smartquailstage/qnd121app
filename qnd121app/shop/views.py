@@ -9,10 +9,7 @@ def product_list(request, category_slug=None):
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     if category_slug:
-        language = request.LANGUAGE_CODE
-        category = get_object_or_404(Category,
-                                     translations__language_code=language,
-                                     translations__slug=category_slug)
+        category = get_object_or_404(Category, category_slug=category_slug)
         products = products.filter(category=category)
     return render(request,
                   'shop/product/list.html',
@@ -25,10 +22,7 @@ def cart_list(request, category_slug=None):
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     if category_slug:
-        language = request.LANGUAGE_CODE
-        category = get_object_or_404(Category,
-                                     translations__language_code=language,
-                                     translations__slug=category_slug)
+        category = get_object_or_404(Category, category_slug=category_slug)
         products = products.filter(category=category)
     return render(request,
                   'shop/product/cart_list.html',
@@ -41,17 +35,11 @@ def product_detail(request, id, slug,category_slug=None):
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
-    language = request.LANGUAGE_CODE
     product = get_object_or_404(Product,
                                 id=id,
-                                translations__language_code=language,
-                                translations__slug=slug,
                                 available=True)
     if category_slug:
-        language = request.LANGUAGE_CODE
-        category = get_object_or_404(Category,
-                                     translations__language_code=language,
-                                     translations__slug=category_slug)
+        category = get_object_or_404(Category,category_slug=category_slug)
         products = products.filter(category=category)
 
     cart_product_form = CartAddProductForm()

@@ -26,8 +26,8 @@ class Category(TranslatableMixin, models.Model):
     ]
 
     class Meta:
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
+        verbose_name = 'Catálogo de Productos - Categoría'
+        verbose_name_plural = 'Catálogo de Productos - Categorías'
         constraints = [
             models.UniqueConstraint(fields=['translation_key', 'locale'], name='unique_translation_key_locale_shop_category')
         ]
@@ -42,7 +42,7 @@ class Category(TranslatableMixin, models.Model):
 
 
 
-class Product(TranslatableMixin, models.Model):
+class Product(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     description = models.TextField(blank=True)
@@ -65,10 +65,10 @@ class Product(TranslatableMixin, models.Model):
         return reverse('shop:product_detail', args=[self.id, self.slug])
 
     class Meta:
+        verbose_name = 'Catálogo de Productos - Item'
+        verbose_name_plural = 'Catálogo de Productos - Items'
         ordering = ('name',)
         index_together = (('id', 'slug'),)
-        constraints = [
-            models.UniqueConstraint(fields=['translation_key', 'locale'], name='unique_translation_key_locale_shop_product')
-        ]
+
 
 

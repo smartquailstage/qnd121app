@@ -20,14 +20,7 @@ UNFOLD = {
     "SITE_TITLE": "AGROSILMA",
     "SITE_HEADER": "MEDDES",
     "SITE_SUBHEADER": "Centro de rehabilitación integral",
-    "SITE_DROPDOWN": [
-        {
-            "icon": "diamond",
-            "title": _("My site"),
-            "link": "admin:shop_category_changelist",
-        },
-        # ...
-    ],
+
     "SITE_URL": "/",
     # "SITE_ICON": lambda request: static("icon.svg"),  # both modes, optimise for 32px height
     "SITE_ICON": {
@@ -54,7 +47,7 @@ UNFOLD = {
     "ENVIRONMENT": "Production.environment_callback",
     "THEME": "dark",
     "LOGIN": {
-        "image": lambda request: static("img/BA-BG/test.png"),
+        "image": lambda request: static("img/BG2.jpg"),
        # "redirect_after": lambda request: reverse_lazy("admin:usuarios_changelist"),
     },
     "STYLES": [
@@ -74,7 +67,7 @@ UNFOLD = {
             "500": "255 227 0",
             "600": "240 159 3",
             "700": "223 189 4",
-            "800": "170 137 4",
+            "800": "106 63 3",
             "900": "34 18 0",
             "950": "3 7 18",
         },
@@ -114,20 +107,69 @@ UNFOLD = {
         "show_all_applications": True,
         "navigation": [
             {
-                "title": _("Users and Groups Management"),
+                "title": _("Gestión de Usuarios"),
                 "separator": True,
                 "collapsible": True,
                 "items": [
                     {
-                        "title": _("Users"),
+                        "title": _("Usuarios"),
                         "icon": "people",
                         "link": reverse_lazy("admin:auth_user_changelist"),
                     },
                     {
-                        "title": _("Groups"),
+                        "title": _("Grupo de Usuarios"),
                         "icon": "groups",
                         "link": reverse_lazy("admin:auth_group_changelist"),
                     },
+                                        {
+                        "title": _("Perfil de Usuario"),
+                        "icon": "list",
+                        "link": reverse_lazy("admin:usuarios_profile_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Bodega"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Categorias de productos"),
+                        "icon": "package",
+                        "link": reverse_lazy("admin:shop_category_changelist"),
+                    },
+                    {
+                        "title": _("Item de productos"),
+                        "icon": "package",
+                        "link": reverse_lazy("admin:shop_product_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Ventas"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Ordenes de Pedidos"),
+                        "icon": "payment",
+                        "link": reverse_lazy("admin:orders_order_changelist"),
+                    },
+
+                ],
+            },
+
+            {
+                "title": _("Creditos"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Descuentos"),
+                        "icon": "money",
+                        "link": reverse_lazy("admin:coupons_coupon_changelist"),
+                    },
+
                 ],
             },
         ],

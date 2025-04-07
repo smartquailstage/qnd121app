@@ -1,98 +1,106 @@
 
-{% load i18n %}
-{% load wagtailcore_tags %}
-{% load wagtailimages_tags %}
 {% load widget_tweaks %}
-{% load static  %}
+{% load static %}
 
 
-
-
-<head>
-    <!--=============== basic  ===============-->
-    <meta charset="UTF-8">
-    <title>CENTRO COMUNINARIO-ISLA FLOREANA</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="robots" content="index, follow"/>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
-    <!--=============== css  ===============-->	
-    <link type="text/css" rel="stylesheet" href="{% static 'css/reset_2.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/plugins.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/style_3.css' %}">
-    <!--=============== favicons ===============-->
-    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
-</head>
-
-
-<header class="main-header">
-    <!-- logo   -->
-    
-    <a href="{% slugurl 'home' %}" class="logo-holder"><img src="{% static 'img/logo_floreana.png' %}" alt="" ></a>  
-
-    <!-- logo end  -->		
-    <!-- search -->				
-    
-    <!-- search end  -->
+    <header class="top-header">
+        <nav class="navbar navbar-expand gap-3">
+          <div class="toggle-icon">
+            <ion-icon name="menu-outline"></ion-icon>
+          </div>
+         
+ 
+          <div class="top-navbar-right ms-auto">
   
-    
-   
-    <div class="share-btn showshare"><i class="fal fa-share"></i><span>Share</span></div>
-    <div class="share-btn"><a href="{% url 'shop:cart_list' %}"><i class="fal fa-shopping-cart"></i></a><span>Cart</span></div>
-    <!-- mobile nav -->
-    <div class="nav-button-wrap">
-        <div class="nav-button"><span></span><span></span><span></span></div>
-    </div>
-    <!-- mobile nav end-->                
-    <!--  navigation -->
-    <div class="nav-holder main-menu">
-        <nav>
-            <ul>
-                <li>
-                    <a href="{% slugurl 'story' %}" class="act-link">{% trans "The Island" %} </a>
-                </li>
-                <li>
-                    <a href="{% slugurl 'charms' %}">{% trans "Charms"%}</a>
-                </li>
-                <li>
-                    <a href="#">{% trans "Worlds" %}</a>
-                    <ul>
-                        <li><a href="{% slugurl 'natural' %}">{% trans "Natural Environ" %}</a></li>
-                        <li><a href="{% slugurl 'geological environment' %}">{% trans "Geological Environ" %}</a></li>
-                        <li><a href="{% slugurl 'marine environment' %}">{% trans "Marine Environ" %}</a></li>
-                        <li><a href="{% slugurl 'community environment' %}">{% trans "Community Environ" %}</a></li>
-                     
-                    </ul>
-                </li>
-                <li>
-                    <a href="{% slugurl 'hosts' %}">{% trans "Hosts" %}</a>
-                </li>
-                <li>
-                    <a href="{% url 'shop:product_list' %}">{% trans "Expeditions" %}</a>
-                </li>
-                <li>
-                    <a href="{% slugurl 'contacts' %}">{% trans "Contacts" %}</a>
-                </li>
-                <li>
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    <a href="#" class="act-link">{% trans "Languages" %} </a>
-                    <ul class="languages">
-                        {% for language in languages %}
-                          <li>
-                            <a href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
-                              {{ language.name_local }}
-                            </a>
-                          </li>
-                        {% endfor %}
-                      </ul>
-                   
+            <ul class="navbar-nav align-items-center">
+        
+<li  >
+
+
+
+</li>
+
+
+
+
+              <li class="nav-item dropdown dropdown-user-setting">
+                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
+                  <div class="user-setting">
+                    <img src="{% static '/assets/images/logo_test.png' %}" alt="" width="54" height="54" >
+                </div>
+                </a>
                 
-                    <!--second level end-->
-                </li>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a class="dropdown-item" href="javascript:;">
+                      <div class="d-flex flex-row align-items-center gap-2">
+                        {% if profile.photo %}
+                        <img src="{{ profile.photo.url }}" alt="" width="54" height="54">
+                        {% else %}
+                        <img src="{% static 'assets/images/user.png' %}" alt="Default Profile Photo" width="54" height="54">
+                        {% endif %}
+                       
+                        <div class="">
+                          <h6 class="mb-0 dropdown-user-name">{{ user.first_name }}</h6>
+                          <small class="mb-0 dropdown-user-designation text-secondary">{{user.last_name}}</small>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'usuarios:perfil' %}">
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <ion-icon name="person-outline"></ion-icon>
+                        </div>
+                        <div class="ms-3"><span>Perfil de usuario</span></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'usuarios:configuraciones' %}">
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <ion-icon name="settings-outline"></ion-icon>
+                        </div>
+                        <div class="ms-3"><span>Configuraciones</span></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'usuarios:dashboard' %}">
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <ion-icon name="speedometer-outline"></ion-icon>
+                        </div>
+                        <div class="ms-3"><span>Inicio</span></div>
+                      </div>
+                    </a>
+             
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'logout' %}">
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <ion-icon name="log-out-outline"></ion-icon>
+                        </div>
+                        <div class="ms-3"><span>Salir</span></div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+  
             </ul>
+
+            
+  
+          </div>
         </nav>
-    </div>
-    <!-- navigation  end -->               
-</header>
+      </header>
+      <!--end top header-->

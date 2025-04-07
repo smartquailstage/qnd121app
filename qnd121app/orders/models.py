@@ -39,8 +39,8 @@ class Order(models.Model):
 
     class Meta:
         ordering = ('-created',)
-        verbose_name = 'Reserva Online'
-        verbose_name_plural = 'Reservas Online'
+        verbose_name = 'Orden de Compras'
+        verbose_name_plural = 'Ordenes de Compras'
 
     def __str__(self):
         return 'Reserve to {}'.format(self.first_name +' '+ self.last_name)

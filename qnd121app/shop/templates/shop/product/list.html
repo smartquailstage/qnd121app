@@ -17,6 +17,118 @@
 
 {% include 'shop/list_header.html' %}
 
+
+   <div class="page-content-wrapper">
+     <!-- start page content-->
+    <div class="page-content">
+
+     <!--start breadcrumb-->
+     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+       <div class="breadcrumb-title pe-3">Productos de Arroz Disponibles</div>
+       <div class="ps-3">
+         <nav aria-label="breadcrumb">
+           <ol class="breadcrumb mb-0 p-0 align-items-center">
+             <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="cart-outline"></ion-icon></a>
+             </li>
+             <li class="breadcrumb-item active" aria-current="page">Realizar Pedidos</li>
+           </ol>
+         </nav>
+       </div>
+
+     </div>
+     <!--end breadcrumb-->
+        
+     <!--start shop area-->
+   <section class="shop-page">
+     <div class="shop-container">
+       <div class="card shadow-sm border-0">
+        <div class="card-body">
+       <div class="row">
+
+         <div class="col-12 col-xl-12">
+           <div class="product-wrapper">
+
+             <div class="product-grid">
+               <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+
+                {% for c in categories %}
+                {% if category.slug == c.slug %}{% endif %}
+                {% for product in products %}
+
+                 <div class="col">
+                   <div class="card product-card">
+                        <a href="javascript:;" class="position-absolute end-0 top-0 m-3">
+                           <div class="product-wishlist"> <i class="bx bx-heart"></i>
+                           </div>
+                         </a>
+                         <img src="{% if c.image %}{{ c.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" width="400px" class="card-img-top" alt="...">
+                     <div class="card-body">
+                       <div class="product-info">
+                         <a href="javascript:;">
+                           <p class="product-catergory font-13 mb-1">{{ c.categry }}</p>
+                         </a>
+                         <a href="ecommerce-product-details.html">
+                           <h6 class="product-name mb-2">{{ c.name }}</h6>
+                         </a>
+                         <div class="d-flex align-items-center">
+                           <div class="mb-1 product-price">	<span class="me-1 text-decoration-line-through">$99.00</span>
+                             <span class="fs-5">$49.00</span>
+                           </div>
+                           <div class="cursor-pointer ms-auto">
+                             <i class="bx bxs-star text-warning"></i>
+                             <i class="bx bxs-star text-warning"></i>
+                             <i class="bx bxs-star text-warning"></i>
+                             <i class="bx bxs-star text-warning"></i>
+                             <i class="bx bxs-star text-warning"></i>
+                           </div>
+                         </div>
+                         <div class="product-action mt-2">
+                           <div class="d-grid">
+                             <a href="{{ product.get_absolute_url }}" class="btn btn-primary"><i class="bx bxs-cart-add"></i>Agregar mi carrito</a>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                  {% endfor %}
+                  {% endfor %}
+
+               </div>
+               <!--end row-->
+             </div>
+             <hr>
+
+           </div>
+         </div>
+         </div><!--end row-->
+       </div>
+      </div>
+     </div>
+   </section>
+   <!--end shop area-->
+
+     </div>
+     <!-- end page content-->
+    </div>
+    
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+    <!--End Back To Top Button-->
+
+
+
+    <!--start overlay-->
+     <div class="overlay nav-toggle-icon"></div>
+    <!--end overlay-->
+
+
+
+
+{% endblock %}
+
 <div id="wrapper">
   <!-- content -->	
   <div class="content">
@@ -106,5 +218,3 @@
       <div class="share-container fl-wrap  isShare"></div>
   </div>
   <!--share-wrapper end-->
-</div>
-{% endblock %}

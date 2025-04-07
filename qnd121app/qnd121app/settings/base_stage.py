@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'orders',
     'payment',
     'coupons',
-    #'usuarios',
+    'usuarios',
 
    
     'django.contrib.contenttypes',

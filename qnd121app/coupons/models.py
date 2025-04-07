@@ -15,3 +15,7 @@ class Coupon(models.Model):
 
     def __str__(self):
         return self.code
+    class Meta:
+        ordering = ('-valid_to',)
+        verbose_name = 'Descuento'
+        verbose_name_plural = 'Descuentos'

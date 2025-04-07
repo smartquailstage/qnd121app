@@ -1,0 +1,337 @@
+
+{% extends "shop/base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+{% load i18n %}
+
+
+
+{% block content %}
+
+
+
+ <!--start wrapper-->
+ <div class="wrapper">
+
+
+
+    <!-- start page content wrapper-->
+    <div class="page-content-wrapper">
+      <!-- start page content-->
+     <div class="page-content">
+
+         <!--start breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+          <div class="breadcrumb-title pe-3">eCommerce</div>
+          <div class="ps-3">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0 p-0 align-items-center">
+                <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Cart</li>
+              </ol>
+            </nav>
+          </div>
+
+        </div>
+        <!--end breadcrumb-->
+
+
+        <!--start shop cart-->
+        <section class="shop-page">
+          <div class="shop-container">
+
+            <div class="card shadow-sm border-0">
+              <div class="card-body">
+                <div class="shop-cart">
+                  <div class="row">
+                    <div class="col-12 col-xl-8">
+                      <div class="shop-cart-list">
+                        {% for item in cart %}
+                        {% with product=item.product %}
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="row align-items-center g-3">
+                              <div class="col-12 col-lg-6">
+                                <div class="d-lg-flex align-items-start gap-3">
+                                  <div class="cart-img text-center text-lg-start">
+                                    <img src="assets/images/products/01.png" class="rounded" width="130" alt="">
+                                  </div>
+                                  <div class="cart-detail text-center text-lg-start">
+                                    <h6 class="mb-2">{{ product.name }}</h6>
+                                    <p class="mb-0">Size: <span>Regular</span>
+                                    </p>
+                                    <p class="mb-2">Color: <span>White & Blue</span>
+                                    </p>
+                                    <h5 class="mb-0">$19.00</h5>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12 col-lg-3">
+                                <div class="cart-action text-center">
+                                  <input type="number" class="form-control" value="2" min="1">
+                                </div>
+                              </div>
+                              <div class="col-12 col-lg-3">
+                                <div class="text-center">
+                                  <div class="d-flex gap-2 justify-content-center justify-content-lg-end">
+                                    <a href="javascript:;" class="btn btn-primary btn-ecomm"><i class='bx bx-x-circle'></i>Remove</a>
+                                    <a href="javascript:;" class="btn btn-outline-primary btn-ecomm"><i class='bx bx-heart mx-0'></i></a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {% endwith %}
+                        {% endfor %}  
+          
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="d-lg-flex align-items-center gap-3">
+                              <a href="javascript:;" class="btn btn-primary btn-ecomm"><i class='bx bx-shopping-bag'></i> Continue Shoping</a>
+                              <a href="javascript:;" class="btn btn-light btn-ecomm ms-auto"><i class='bx bx-x-circle'></i> Clear Cart</a>
+                              <a href="javascript:;" class="btn btn-white btn-ecomm"><i class='bx bx-refresh'></i> Update Cart</a>
+                            </div>
+                          </div>
+                        </div>
+                                 
+                      </div>
+                    </div>
+                    <div class="col-12 col-xl-4">
+                      <div class="card">
+                        <div class="card-body">
+                         <div class="card">
+                          <div class="card-body">
+                            <p class="fs-5">Apply Discount Code</p>
+                            <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Enter discount code">
+                              <button class="btn btn-primary btn-ecomm" type="button">Apply</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card mb-0">
+                          <div class="card-body">
+                            <p class="mb-2">Subtotal: <span class="float-end">$198.00</span>
+                            </p>
+                            <p class="mb-2">Shipping: <span class="float-end">--</span>
+                            </p>
+                            <p class="mb-2">Taxes: <span class="float-end">$14.00</span>
+                            </p>
+                            <p class="mb-0">Discount: <span class="float-end">--</span>
+                            </p>
+                            <div class="my-3 border-top"></div>
+                            <h5 class="mb-0">Order Total: <span class="float-end">212.00</span></h5>
+                            <div class="my-4"></div>
+                            <div class="d-grid"> <a href="javascript:;" class="btn btn-primary btn-ecomm">Proceed to Checkout</a>
+                            </div>
+                          </div>
+                         </div>
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end row-->
+                </div>
+              </div>
+             </div>
+
+          </div>
+        </section>
+        <!--end shop cart-->
+
+
+      </div>
+      <!-- end page content-->
+     </div>
+     
+
+
+
+ </div>
+<!--end wrapper-->
+
+{% endblock %}
+
+<div id="wrapper">
+  <!-- content -->	
+  <div class="content">
+      <!-- column-image  -->	
+      <div class="column-image">
+         
+          <div class="overlay"></div>
+          <div class="overlay"></div>
+          
+          <div class="bg"  data-bg="{% static 'img/4.jpg' %}"></div>
+      <div class="overlay"></div> 
+          <div class="column-title">
+            
+            <img src="{% static 'img/logo_flor.png' %}" width="350px">
+            <div class="overlay"></div> 
+              <h2>{% trans "Reservations" %}</h2>
+          </div>
+
+          
+
+        
+        
+          <div class="fixed-column-dec"></div>
+      </div>
+      <!-- column-image end  -->	
+      <!-- column-wrapper -->	
+      <div class="column-wrapper  single-content-section">
+
+          <!-- fixed-bottom-content-->	
+        <div class="fixed-bottom-content">
+                            <!-- pagination   -->
+                            <div class="content-nav-fixed">
+                                <ul>
+                                    <li>
+                                        <a href="{% url "shop:product_list" %}" class="ln"><i class="fal fa-long-arrow-left"></i><span> <strong>- {% trans "Continue shopping" %}</strong></span></a>
+                                        <div class="content-nav_mediatooltip cnmd_leftside"><img  src="images/folio/1.jpg"   alt=""></div>
+                                    </li>
+                                    <li>
+                                        <a href="{% url "orders:order_create" %}" class="rn">{% trans "CheckIn" %}<span > <strong><i class="fal fa-plane"></i> </strong></span> <i class="fal fa-long-arrow-right"></i></a>
+                                        <div class="content-nav_mediatooltip cnmd_rightside"><img  src="images/folio/1.jpg"   alt=""></div>
+                                    </li>
+                                </ul>
+                            </div>
+        </div>
+          <!-- fixed-bottom-content end -->	
+          <!--section  -->	
+        
+          <section id="sec3">
+            <div class="container small-container">
+                <div class="section-title fl-wrap">
+                  
+                
+                    <h3>{% trans "Make Reservations" %}</h3>
+                    
+                </div>
+                <div class="column-wrapper_item fl-wrap">
+                    <div class="column-wrapper_text fl-wrap">
+                        <!-- serv-wrap--> 
+                        <div class="serv-wrap fl-wrap">
+                            <!-- serv-item --> 
+                            {% for item in cart %}
+                            {% with product=item.product %}
+                           
+                            <div class="serv-item">
+                             
+                              <h4>{{ product.name }}</h4>
+
+                                <div class="serv-media">
+                                  <a href="{{ product.get_absolute_url }}">
+                                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" width="300px">
+                                  </a>
+                                 
+                                </div>
+
+                                <div class="column-wrapper_item fl-wrap">
+                                  
+                                  <div class="column-wrapper_text fl-wrap">
+                                      
+                                      <div class="contact-details fl-wrap">
+                                        
+                                       
+                                        
+                                          <ul>
+                                           
+                                              <li><span>{% trans "Price per person "%} :</span>$ {{ item.price }}</li>
+                                              <li><span>{% trans "Final Price" %} :</span>${{ item.total_price }}</li>
+                                              <li><span># {% trans "persons" %} <i class="fal fa-user"></i> :</span> 
+                                                <form action="{% url "cart:cart_add" product.id %}" method="post">
+                                                  {{ item.update_quantity_form.quantity }}
+                                                  {{ item.update_quantity_form.update }}
+                                                  <input type="submit" class="btn btn-primary btn-block" value="Update">
+                                                  {% csrf_token %}
+                                                </form> 
+                                                <li>
+                                                  <p>{% trans "Apply a Coupon" %}</p>
+  <form action="{% url "coupons:apply" %}" method="post">
+    {{ coupon_apply_form }}
+    <input type="submit" value="Apply" class="btn btn-primary btn-block" >
+    {% csrf_token %}
+  </form>
+                                                </li>
+                                              <li>
+
+                                                {% if cart.coupon %}
+        <tr class="subtotal">
+        <td>Subtotal</td>
+        <td colspan="4"></td>
+        <td class="num">${{ cart.get_total_price|floatformat:"2" }}</td>
+      </tr>
+      <tr>
+        <td>
+          "{{ cart.coupon.code }}" coupon
+          ({{ cart.coupon.discount }}% off )
+        </td>
+        <td colspan="4">
+          <td class="num neg">
+            - $ {{cart.get_discount|floatformat:"2" }}
+          </td>
+        </td>
+      </tr>
+      {% endif %}
+                                              </li>
+                                              
+                                            
+                                           
+                                          
+                                                <a href="{% url "cart:cart_remove" product.id %}" type="submit" value="Apply" class="btn btn-primary btn-block" > {% trans "Cancel" %}</a>
+                                             
+                                                
+                                          </ul>
+                                      </div>
+                                
+                                  </div>
+                                
+                              </div>
+
+                              
+                               
+                            </div>
+                            {% endwith %}
+                              {% endfor %}
+                           
+                            <!-- serv-item end --> 
+                            <!-- serv-item --> 
+                            
+                            <!-- serv-item end -->                                                  
+                        </div>
+                        <!-- serv-wrap end --> 
+                        <p>{{product.description}}</p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </section>
+       
+          <!--section end  -->	
+          <!--footer -->			
+          <footer class="min-footer fl-wrap content-animvisible">
+              <div class="container small-container">
+                  <div class="footer-inner fl-wrap">
+                      <!-- policy-box-->
+                      <div class="policy-box">
+                        <span>&#169; Powered by SmartQuail, Inc / Design by Edward Cooper  </span>
+                      </div>
+                      <!-- policy-box end-->
+                      <a href="#" class="to-top-btn to-top">Back to top <i class="fal fa-long-arrow-up"></i></a>
+                  </div>
+              </div>
+          </footer>
+          <!--footer end  -->	
+      </div>
+      <!-- column-wrapper -->	
+  </div>
+  <!--content end-->	
+  <!--share-wrapper-->
+  <div class="share-wrapper">
+      <div class="share-container fl-wrap  isShare"></div>
+  </div>
+  <!--share-wrapper end-->
+</div>
