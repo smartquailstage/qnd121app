@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 
-DEBUG= False
+DEBUG=True
 
 
 # Obtener las variables de entorno desde Kubernetes
