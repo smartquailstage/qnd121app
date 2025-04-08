@@ -97,9 +97,8 @@
                         <div class="card">
                           <div class="card-body">
                             <div class="d-lg-flex align-items-center gap-3">
-                              <a href="javascript:;" class="btn btn-primary btn-ecomm"><i class='bx bx-shopping-bag'></i> Continue Shoping</a>
-                              <a href="javascript:;" class="btn btn-light btn-ecomm ms-auto"><i class='bx bx-x-circle'></i> Clear Cart</a>
-                              <a href="javascript:;" class="btn btn-white btn-ecomm"><i class='bx bx-refresh'></i> Update Cart</a>
+                              <a href="{% url "shop:product_list" %}" class="btn btn-primary btn-ecomm"><i class='bx bx-shopping-bag'></i> Continue Shoping</a>
+                   
                             </div>
                           </div>
                         </div>
@@ -125,23 +124,25 @@
                             </div>
                           </div>
                         </div>
+                       
                         <div class="card mb-0">
                           <div class="card-body">
-                            <p class="mb-2">Subtotal: <span class="float-end">$ {{ item.total_price }}</span>
+                            <p class="mb-2">Subtotal: <span class="float-end">$ {{ cart.get_total_price|floatformat:"2" }}</span>
                             </p>
-                            <p class="mb-2">Shipping: <span class="float-end">--</span>
+                            {% if cart.coupon %}
+                            <p class="mb-2">Descuento: <span class="float-end">$ {{cart.get_discount|floatformat:"2" }}</span>
                             </p>
-                            <p class="mb-2">Taxes: <span class="float-end">$14.00</span>
-                            </p>
-                            <p class="mb-0">Discount: <span class="float-end">--</span>
+                            {% endif %}
+                            <p class="mb-2">I.V.A: <span class="float-end">$14.00</span>
                             </p>
                             <div class="my-3 border-top"></div>
-                            <h5 class="mb-0">Order Total: <span class="float-end">212.00</span></h5>
+                            <h5 class="mb-0">Total: <span class="float-end">212.00</span></h5>
                             <div class="my-4"></div>
-                            <div class="d-grid"> <a href="javascript:;" class="btn btn-primary btn-ecomm">Proceed to Checkout</a>
+                            <div class="d-grid"> <a href="{% url "orders:order_create" %}" class="btn btn-primary btn-ecomm">Proceed to Checkout</a>
                             </div>
                           </div>
                          </div>
+                        
                        </div>
                       </div>
                     </div>

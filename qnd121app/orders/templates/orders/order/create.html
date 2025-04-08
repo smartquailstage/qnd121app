@@ -14,7 +14,188 @@
 {% endblock %}
 
 {% block content %}
-{% include 'cart/detail_header.html' %}
+
+ <!--start wrapper-->
+ <div class="wrapper">
+
+   <!-- start page content wrapper-->
+   <div class="page-content-wrapper">
+     <!-- start page content-->
+    <div class="page-content">
+
+     <!--start breadcrumb-->
+     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+       <div class="breadcrumb-title pe-3">eCommerce</div>
+       <div class="ps-3">
+         <nav aria-label="breadcrumb">
+           <ol class="breadcrumb mb-0 p-0 align-items-center">
+             <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
+             </li>
+             <li class="breadcrumb-item active" aria-current="page">Checkout Details</li>
+           </ol>
+         </nav>
+       </div>
+
+     </div>
+     <!--end breadcrumb-->
+
+
+     <!--start shop cart-->
+     <section class="shop-page">
+       <div class="shop-container">
+         <div class="card shadow-sm border-0">
+           <div class="card-body">
+       <div class="shop-cart">
+         <div class="row">
+           <div class="col-12 col-xl-8">
+             <div class="checkout-details">
+               <div class="card border-0">
+                 <div class="card-body">
+                   <div class="steps steps-light">
+                     <a class="step-item active" href="ecommerce-shop-cart.html">
+                       <div class="step-progress"><span class="step-count">1</span>
+                       </div>
+                       <div class="step-label"><i class='bx bx-cart'></i>Carrito</div>
+                     </a>
+                     <a class="step-item active current" href="ecommerce-checkout-details.html">
+                       <div class="step-progress"><span class="step-count">2</span>
+                       </div>
+                       <div class="step-label"><i class='bx bx-user-circle'></i>Orden de Compra</div>
+                     </a>
+                     <a class="step-item" href="#">
+                       <div class="step-progress"><span class="step-count">3</span>
+                       </div>
+                       <div class="step-label"><i class='bx bx-cube'></i>Verificación de despacho</div>
+                     </a>
+                     <a class="step-item" href="#">
+                       <div class="step-progress"><span class="step-count">4</span>
+                       </div>
+                       <div class="step-label"><i class='bx bx-check-circle'></i>Confirmación</div>
+                     </a>
+                   </div>
+                 </div>
+               </div>
+               <div class="card">
+                 <div class="card-body">
+                   <hr>
+                   <div class="">
+                     <h2 class="h5 mb-0">Ingresar Datos para realizar el despacho del pedido</h2>
+                     <div class="my-3 border-bottom"></div>
+                     <div class="form-body">
+                      <form  class="row g-3" action="." method="post" >
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        {% if field.is_hidden %}
+{# Don't render label #}
+{% endif %}
+                        {% if  label.is_hidden %}
+                        {{form.last_name}} {{sudaca}}
+                        {% endif %}
+                        {% for field in form.hidden_fields %}
+                        {{ field }}
+                       {% endfor %}
+                       {% for field in  bootstrap_form.visible_fields %}
+                        {{ field }}
+                  
+                        {% endfor %}
+                       
+                         
+
+
+<div class="col-md-6">
+  <div class="d-grid">	<a href="javascript:;" class="btn btn-light btn-ecomm"><i class='bx bx-chevron-left'></i>Volver al Carrito</a>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="d-grid">	<input type="submit" class="btn btn-primary btn-ecomm" value="Crear Orden de compra"> 
+  </div>
+</div>
+<a href="{% url "orders:order_term"  %}" style="text-decoration: underline;"> {% trans "terms & conditions for reserve this service" %}</a>
+
+                         
+                           
+                           
+                        
+                      </form>
+             
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-12 col-xl-4">
+             <div class="order-summary">
+               <div class="card">
+                 <div class="card-body">
+                   <div class="card">
+                     <div class="card-body">
+                       <p class="fs-5">Resumen de Orden De Compra </p>
+                       {% for item in cart %}
+                       <div class="my-3 border-top"></div>
+                       <div class="d-flex align-items-center">
+                         <a class="d-block flex-shrink-0" href="{{ item.product.get_absolute_url }}">
+                          
+                            <img src="{% if item.product.image %}{{ item.product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" class="rounded" width="75" alt="Product">
+                         </a>
+                         <div class="ps-3">
+                           <h6 class="mb-1">{{ item.product.name }}</h6>
+                           <div class="widget-product-meta"><span class="me-2">${{ item.price|floatformat:"2" }} </span><span class="">x {{ item.quantity }} </span>
+                            <div class="widget-product-meta"><span class="me-2">${{ item.total_price|floatformat:"2" }} </span> 
+                          </div>
+                         </div>
+                       </div>
+                       {% endfor %}
+
+                     </div>
+                   </div>
+                   <div class="card mb-0">
+                     <div class="card-body">
+                       <p class="mb-2">Subtotal: <span class="float-end">${{ cart.get_discount|floatformat:"2" }} </span>
+                       </p>
+                       <p class="mb-2">Shipping: <span class="float-end">--</span>
+                       </p>
+                       <p class="mb-2">Taxes: <span class="float-end">$14.00</span>
+                       </p>
+                       <p class="mb-0">Discount: <span class="float-end">--</span>
+                       </p>
+                       <div class="my-3 border-top"></div>
+                       <h5 class="mb-0">Order Total: <span class="float-end">${{ cart.get_total_price_after_discount|floatformat:"2" }}</span></h5>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         <!--end row-->
+       </div>
+     </div>
+   </div>
+ </div>
+   </section>
+   <!--end shop cart-->
+        
+
+     </div>
+     <!-- end page content-->
+    </div>
+    
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+    <!--End Back To Top Button-->
+
+
+
+</div>
+<!--end wrapper-->
+
+
+{% endblock %}
+
+
 
 <div id="wrapper">
   <!-- content -->	
@@ -148,4 +329,3 @@
   </div>
   <!--share-wrapper end-->
 </div>
-{% endblock %}

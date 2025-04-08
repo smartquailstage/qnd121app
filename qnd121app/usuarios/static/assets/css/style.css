@@ -1222,7 +1222,7 @@ ul.categories-list li {
 	width: 100%;
 }
 .steps-light .step-item {
-	color: #888a8c
+	color: #f0ed0d;
 }
 .step-item {
 	flex-basis: 0;
@@ -1233,7 +1233,7 @@ ul.categories-list li {
 }
 .steps-light .step-item.active .step-count, .steps-light .step-item.active .step-progress {
 	color: #ffffff;
-    background-color: #923eb9;
+    background-color: #c4960b;
 }
 .step-item:first-child .step-progress {
 	border-radius: .125rem;
@@ -1270,7 +1270,7 @@ ul.categories-list li {
 	vertical-align: middle;
 }
 .steps-light .step-item.active.current {
-	color: #30384a;
+	color: #85c612;
 }
 
 
