@@ -30,7 +30,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
 
-    path('analytics/', admin.site.urls),
+    path('asmerp/', admin.site.urls),
    # path('baton/', include('baton.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('rosetta/', include('rosetta.urls')),
@@ -64,11 +64,7 @@ urlpatterns = [
     re_path(r'^businessmedia/', include(wagtailadmin_urls),name='wagtail'),
     re_path(r'^documents/', include(wagtaildocs_urls)),
     re_path(r'', include(wagtail_urls)),
-    prefix_default_language=False,
-    
-
-   
-
+    #prefix_default_language=False,
   ]  
 
   # Add static URLs to the urlpatterns if in debug mode

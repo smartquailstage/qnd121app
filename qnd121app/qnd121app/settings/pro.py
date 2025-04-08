@@ -39,12 +39,12 @@ UNFOLD = {
     "SITE_URL": "/",
     # "SITE_ICON": lambda request: static("icon.svg"),  # both modes, optimise for 32px height
     "SITE_ICON": {
-        "light": lambda request: static("img/logo_test.png"),
-        "dark": lambda request: static("img/logo_test.png"),
+        "light": lambda request: static("/img/logo_test.png"),
+        "dark": lambda request: static("/img/logo_test.png"),
     },
     "SITE_LOGO": {
-        "light": lambda request: static("img/logo_test.png"),
-        "dark": lambda request: static("img/logo_test.png"),
+        "light": lambda request: static("/img/logo_test.png"),
+        "dark": lambda request: static("/img/logo_test.png"),
     },
     "SITE_SYMBOL": "speed",
     "SITE_FAVICONS": [
@@ -62,7 +62,7 @@ UNFOLD = {
     "ENVIRONMENT": "Production.environment_callback",
     "THEME": "dark",
     "LOGIN": {
-        "image": lambda request: static("img/BG2.jpg"),
+        "image": lambda request: static("/img/BG2.jpg"),
        # "redirect_after": lambda request: reverse_lazy("admin:usuarios_changelist"),
     },
     "STYLES": [
