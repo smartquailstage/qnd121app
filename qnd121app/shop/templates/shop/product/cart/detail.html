@@ -55,7 +55,9 @@
                               <div class="col-12 col-lg-6">
                                 <div class="d-lg-flex align-items-start gap-3">
                                   <div class="cart-img text-center text-lg-start">
-                                    <img src="assets/images/products/01.png" class="rounded" width="130" alt="">
+                                    <a href="{{ product.get_absolute_url }}">
+                                      <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" class="rounded" width="130" alt="">
+                                    </a>
                                   </div>
                                   <div class="cart-detail text-center text-lg-start">
                                     <h6 class="mb-2">{{ product.name }}</h6>
