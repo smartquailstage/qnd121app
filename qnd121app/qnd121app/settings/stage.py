@@ -17,7 +17,7 @@ ALLOWED_HOSTS = os.environ.get("ENV_ALLOWED_HOSTS", "").split(",") if os.environ
 
 
 UNFOLD = {
-    "SITE_TITLE": "AGROSILMA",
+    "SITE_TITLE": "AGROSILMA - Sistema Operativo ERP",
     "SITE_HEADER": "Agro Sylvia María",
     "SITE_SUBHEADER": "Sistema Operativo - ERP",
 
