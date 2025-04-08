@@ -61,11 +61,11 @@
                                   </div>
                                   <div class="cart-detail text-center text-lg-start">
                                     <h6 class="mb-2">{{ product.name }}</h6>
-                                    <p class="mb-0">Size: <span>Regular</span>
+                                    <p class="mb-0">Pueso Neto: <span> 1Kg</span>
                                     </p>
-                                    <p class="mb-2">Color: <span>White & Blue</span>
+                                    <p class="mb-2">Categoria: <span>Integral</span>
                                     </p>
-                                    <h5 class="mb-0">$19.00</h5>
+                                    <h5 class="mb-0">$ {{ item.price }}</h5>
                                   </div>
                                 </div>
                               </div>
@@ -77,7 +77,7 @@
                               <div class="col-12 col-lg-3">
                                 <div class="text-center">
                                   <div class="d-flex gap-2 justify-content-center justify-content-lg-end">
-                                    <a href="javascript:;" class="btn btn-primary btn-ecomm"><i class='bx bx-x-circle'></i>Remove</a>
+                                    <a href="{% url "cart:cart_remove" product.id %}"  class="btn btn-primary btn-ecomm"><i class='bx bx-x-circle'></i>Remove</a>
                                     <a href="javascript:;" class="btn btn-outline-primary btn-ecomm"><i class='bx bx-heart mx-0'></i></a>
                                   </div>
                                 </div>
