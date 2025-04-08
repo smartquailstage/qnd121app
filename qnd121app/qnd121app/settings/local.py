@@ -1,7 +1,36 @@
 from .base_local import *
 
-DEBUG=  "0"
+DEBUG= True
 
+
+# Obtener las variables de entorno desde Kubernetes
+IP = os.environ.get("IP")
+DOMAIN = os.environ.get("DOMAIN")
+HOST = os.environ.get("HOST")
+
+
+ALLOWED_HOSTS = ['127.0.0.1','localhost','agrosylma.smartquail.io', '146.190.0.47', '*']
+
+
+#import wagtail_ai
+
+#WAGTAIL_AI_PROMPTS = wagtail_ai.DEFAULT_PROMPTS + [
+#    {
+#        "label": "Simplify",
+#        "description": "Rewrite your text in a simpler form",
+#        "prompt": "Rewrite the following text to make it simper and more succinct",
+#        "method": "replace",
+#    }
+#]
+
+
+#CSRF_COOKIE_DOMAIN="meddes.smartquail.io"
+#CSRF_COOKIE_SECURE = True
+#CSRF_TRUSTED_ORIGINS = ['https://www.smartquail.io','https://146.190.164.22']
+CORS_ALLOWED_ORIGINS = [
+    'https://agrosylma.smartquail.io/asmerp/','https://agrosylma.smartquail.io/pedidos/ingresar'
+    # Otros orígenes permitidos si los hay
+]
 
 
 
