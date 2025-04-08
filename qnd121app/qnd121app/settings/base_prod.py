@@ -406,6 +406,7 @@ TEMPLATES = [
                 'wagtailmenus.context_processors.wagtailmenus',
                 'wagtail.contrib.settings.context_processors.settings',
                 'django.template.context_processors.i18n',
+                'cart.context_processors.cart',
             ],
         },
     },

@@ -220,6 +220,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -227,6 +228,7 @@ TEMPLATES = [
                 #'wagtailmenus.context_processors.wagtailmenus',
                 #'wagtail.contrib.settings.context_processors.settings',
                 'django.template.context_processors.i18n',
+                'cart.context_processors.cart',
             ],
         },
     },
