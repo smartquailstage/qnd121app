@@ -33,18 +33,18 @@ ALLOWED_HOSTS = ['*']
 
 UNFOLD = {
     "SITE_TITLE": "AGROSILMA",
-    "SITE_HEADER": "MEDDES",
-    "SITE_SUBHEADER": "Centro de rehabilitación integral",
+    "SITE_HEADER": "Agro Sylvia María",
+    "SITE_SUBHEADER": "Sistema Operativo - ERP",
 
     "SITE_URL": "/",
     # "SITE_ICON": lambda request: static("icon.svg"),  # both modes, optimise for 32px height
     "SITE_ICON": {
-        "light": lambda request: static("/img/logo_test.png"),
-        "dark": lambda request: static("/img/logo_test.png"),
+        "light": lambda request: static("img/agro_logot.png"),
+        "dark": lambda request: static("img/agro_logo.png"),
     },
     "SITE_LOGO": {
-        "light": lambda request: static("/img/logo_test.png"),
-        "dark": lambda request: static("/img/logo_test.png"),
+        "light": lambda request: static("img/agro_logo.png"),
+        "dark": lambda request: static("img/agro_logo.png"),
     },
     "SITE_SYMBOL": "speed",
     "SITE_FAVICONS": [
@@ -52,7 +52,7 @@ UNFOLD = {
             "rel": "icon",
             "sizes": "32x32",
             "type": "image/svg+xml",
-            "href": lambda request: static("img/logo_test.png"),
+            "href": lambda request: static("img/agro_logo.png"),
         },
     ],
     "SHOW_HISTORY": True,
@@ -62,7 +62,7 @@ UNFOLD = {
     "ENVIRONMENT": "Production.environment_callback",
     "THEME": "dark",
     "LOGIN": {
-        "image": lambda request: static("/img/BG2.jpg"),
+        "image": lambda request: static("img/BG2.jpg"),
        # "redirect_after": lambda request: reverse_lazy("admin:usuarios_changelist"),
     },
     "STYLES": [

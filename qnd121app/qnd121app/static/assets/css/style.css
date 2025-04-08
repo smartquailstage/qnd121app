@@ -738,8 +738,8 @@ ion-icon {
     bottom: 0;
     padding: 0.7rem;
     color: #484444;
-    background-color: #fff;
-    border-top: 1px solid #e9ecef;
+    background-color: #d58805;
+    border-top:1px solid #502601;
     text-align: center;
     transition: .3s all;
 }
@@ -1125,7 +1125,7 @@ ion-icon {
 }
 
 .product-grid .card.product-card {
-	background-color: #ffffff;
+	background-color: #974903;
 	-webkit-transition: all .2s;
 	-o-transition: all .2s;
 	transition: all .2s
@@ -1360,7 +1360,7 @@ ul.categories-list li {
 
 
 .login-cover-img {
-    background-image: url("../images/BG.jpg");
+    background-image: url("../images/BG2.jpg");
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -1369,7 +1369,7 @@ ul.categories-list li {
 
 
 .register-cover-img {
-    background-image: url("../images/BG.jpg");
+    background-image: url("../images/BG2.jpg");
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -1377,7 +1377,7 @@ ul.categories-list li {
 }
 
 .au-reset-password-cover {
-    background-image: url("../images/BG.jpg");
+    background-image: url("../images/BG2.jpg");
     background-position: center;
     background-size: cover;
     width: 100%;
