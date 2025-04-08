@@ -5,9 +5,217 @@
 
 {% block title %}Pay by credit card{% endblock %}
 
-{% block content %}
 <link type="text/css" rel="stylesheet" href="{% static 'css/payment.css' %}">
 {% include 'cart/detail_header.html' %}
+
+{% block content %}
+
+ <!--start wrapper-->
+ <div class="wrapper">
+
+
+
+   <!-- start page content wrapper-->
+   <div class="page-content-wrapper">
+     <!-- start page content-->
+    <div class="page-content">
+
+     <!--start breadcrumb-->
+     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+       <div class="breadcrumb-title pe-3">eCommerce</div>
+       <div class="ps-3">
+         <nav aria-label="breadcrumb">
+           <ol class="breadcrumb mb-0 p-0 align-items-center">
+             <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
+             </li>
+             <li class="breadcrumb-item active" aria-current="page">Shipping</li>
+           </ol>
+         </nav>
+       </div>
+     </div>
+     <!--end breadcrumb-->
+
+
+     <!--start shop cart-->
+     <section class="shop-page">
+       <div class="shop-container">
+         <div class="card shadow-sm border-0">
+           <div class="card-body">
+       <div class="shop-cart">
+         <div class="row">
+           <div class="col-12 col-xl-8">
+             <div class="checkout-details">
+               <div class="card border-0">
+                 <div class="card-body">
+                  <div class="steps steps-light">
+                    <a class="step-item active" href="#">
+                      <div class="step-progress"><span class="step-count">1</span>
+                      </div>
+                      <div class="step-label"><i class='bx bx-cart'></i>Carrito</div>
+                    </a>
+                    <a class="step-item active" href="#">
+                      <div class="step-progress"><span class="step-count">2</span>
+                      </div>
+                      <div class="step-label"><i class='bx bx-user-circle'></i>Orden de Compra</div>
+                    </a>
+                    <a class="step-item" href="#">
+                      <div class="step-progress active current "><span class="step-count">3</span>
+                      </div>
+                      <div class="step-label"><i class='bx bx-cube'></i>Verificación de despacho</div>
+                    </a>
+                    <a class="step-item" href="#">
+                      <div class="step-progress"><span class="step-count">4</span>
+                      </div>
+                      <div class="step-label"><i class='bx bx-check-circle'></i>Confirmación</div>
+                    </a>
+                  </div>
+                 </div>
+               </div>
+               <div class="card">
+                 <div class="card-body">
+                   <h2 class="h5 mb-0">Verificar los detalles de su orden de pedido</h2>
+                   <div class="my-3 border-bottom"></div>
+                   <div class="table-responsive">
+                     <table class="table">
+                       <thead class="table-light">
+                         <tr>
+                           <th>Producto</th>
+                           <th>Cantidad</th>
+                           <th>Subtotal</th>
+                           <th>Descuento</th>
+                           <th>Total</th>
+                         </tr>
+                       </thead>
+                       <tbody>
+                        {% for item in cart %}
+                         <tr>
+                           <td>{{ item.product.name }} </td>
+                           <td>{{ item.quantity }}</td>
+                           <td> ${{ cart.get_discount|floatformat:"2" }}</td>
+                           <td>${{ item.total_price|floatformat:"2" }}</td>
+                           <td>${{ cart.get_total_price_after_discount|floatformat:"2" }}</td>
+                         <tr>
+                          {% endfor %}
+                           <td>Local Pickup</td>
+                           <td>--</td>
+                           <td>$0.00</td>
+                         </tr>
+                         <tr>
+                           <td>UPS Ground</td>
+                           <td>2-5 days</td>
+                           <td>$16.00</td>
+                         </tr>
+                       </tbody>
+                     </table>
+                   </div>
+                 </div>
+               </div>
+               <div class="card">
+                 <div class="card-body">
+                   <div class="row">
+                     <div class="col-md-6">
+                       <div class="d-grid"><a href="{% url "shop:product_list" %}"  class="btn btn-light btn-ecomm"><i class="bx bx-chevron-left"></i>Ver más productos</a>
+                       </div>
+                     </div>
+                     <div class="col-md-6">
+                       <div class="d-grid"><a href="{% url "payment:done" %}"  class="btn btn-primary btn-ecomm">Realizar Orden<i class="bx bx-chevron-right"></i></a>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+         </div>
+         <!--end row-->
+       </div>
+     </div>
+   </div>
+ </div>
+   </section>
+   <!--end shop cart-->
+        
+
+     </div>
+     <!-- end page content-->
+    </div>
+    
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+    <!--End Back To Top Button-->
+
+    <!--start switcher-->
+    <div class="switcher-body">
+     <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
+     <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
+       <div class="offcanvas-header border-bottom">
+         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
+         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+       </div>
+       <div class="offcanvas-body">
+         <h6 class="mb-0">Theme Variation</h6>
+         <hr>
+         <div class="form-check form-check-inline">
+           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1" checked>
+           <label class="form-check-label" for="LightTheme">Light</label>
+         </div>
+         <div class="form-check form-check-inline">
+           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+           <label class="form-check-label" for="DarkTheme">Dark</label>
+         </div>
+         <div class="form-check form-check-inline">
+           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3">
+           <label class="form-check-label" for="SemiDark">Semi Dark</label>
+         </div>
+         <hr/>
+         <h6 class="mb-0">Header Colors</h6>
+         <hr/>
+         <div class="header-colors-indigators">
+           <div class="row row-cols-auto g-3">
+             <div class="col">
+               <div class="indigator headercolor1" id="headercolor1"></div>
+             </div>
+             <div class="col">
+               <div class="indigator headercolor2" id="headercolor2"></div>
+             </div>
+             <div class="col">
+               <div class="indigator headercolor3" id="headercolor3"></div>
+             </div>
+             <div class="col">
+               <div class="indigator headercolor4" id="headercolor4"></div>
+             </div>
+             <div class="col">
+               <div class="indigator headercolor5" id="headercolor5"></div>
+             </div>
+             <div class="col">
+               <div class="indigator headercolor6" id="headercolor6"></div>
+             </div>
+             <div class="col">
+               <div class="indigator headercolor7" id="headercolor7"></div>
+             </div>
+             <div class="col">
+               <div class="indigator headercolor8" id="headercolor8"></div>
+             </div>
+           </div>
+         </div>
+         
+       </div>
+     </div>
+    </div>
+    <!--end switcher-->
+
+
+    <!--start overlay-->
+     <div class="overlay nav-toggle-icon"></div>
+    <!--end overlay-->
+
+</div>
+<!--end wrapper-->
+
+{% endblock %}
 
 <div id="wrapper">
   <!-- content -->	
@@ -265,4 +473,3 @@
       });
     });
   </script>
-{% endblock %}

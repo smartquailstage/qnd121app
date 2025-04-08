@@ -6,64 +6,240 @@
 {% block title %}Pay by credit card{% endblock %}
 
 {% block content %}
-{% include 'cart/detail_header.html' %}
+ <!--start wrapper-->
+ <div class="wrapper">
+    <!--start sidebar -->
 
-<div id="wrapper">
-  <!-- content -->	
-  <div class="content">
-      <!-- column-image  -->	
-      <div class="column-image">
-        <div class="bg"  data-bg="{% static "img/5.jpg" %}" ></div>  
-          <div class="overlay"></div>
-          <div class="column-title">
-            <img src="{% static 'img/logo_flor.png' %} " width=350px>
-              <h2>{% trans "Payment Done" %}</h2>
-              <p>"{% trans "Your dream trip, its every closer"%}"</p>
+      <!-- start page content wrapper-->
+      <div class="page-content-wrapper">
+        <!-- start page content-->
+       <div class="page-content">
+
+        <!--start breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+          <div class="breadcrumb-title pe-3">Pages</div>
+          <div class="ps-3">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0 p-0 align-items-center">
+                <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Invoice</li>
+              </ol>
+            </nav>
           </div>
-          <div class="overlay"></div>
-          <div class="fixed-column-dec"></div>
-      </div>
-      <!-- column-image end  -->	
-      <!-- column-wrapper -->	
-      <div class="column-wrapper ">
-<!--scroll-nav-wrap -->	
-          
-							
-          <section id="sec3">
-              <div class="container small-container">
-                  <div class="section-title fl-wrap">
-                      <h3>{% trans "Your payment reservation for Centro Cultural Isla Floreana was successful" %}</h3>
-                     <p> {% trans "Your payment reservation has been processed successfully." %}</p>
-                     <p> "{% trans "THANKS FOR VISIT US" %}"</p>
-                      
-                 
+        </div>
+        <!--end breadcrumb-->
+
+        <div class="card radius-10">
+          <div class="card-header py-3">
+               <div class="row align-items-center g-3">
+                 <div class="col-12 col-lg-6">
+                   <h5 class="mb-0">ORDEN N.-0000020038484</h5>
+                 </div>
+                 <div class="col-12 col-lg-6 text-md-end">
+                   <a href="{% url "shop:product_list" %}" class="btn btn-primary me-2"><ion-icon name="file-tray-full-sharp"></ion-icon>Realizar nuevo pedido</a>
+                 </div>
+               </div>
+          </div>
+          <div class="card-header py-2">
+            <div class="row row-cols-1 row-cols-lg-3">
+              <div class="col">
+               <div class="">
+                 <small>from</small>
+                 <address class="m-t-5 m-b-5">
+                    <strong class="text-inverse">Twitter, Inc.</strong><br>
+                    Street Address<br>
+                    City, Zip Code<br>
+                    Phone: (123) 456-7890<br>
+                    Fax: (123) 456-7890
+                 </address>
+                </div>
               </div>
-          </section>
-          <!--section end  -->	
-          <!--footer -->			
-          <footer class="min-footer fl-wrap content-animvisible">
-              <div class="container small-container">
-                  <div class="footer-inner fl-wrap">
-                      <!-- policy-box-->
-                      <div class="policy-box">
-                        <span>&#169; Powered by SmartQuail, Inc / Design by Edward Cooper  </span>
-                      </div>
-                      <!-- policy-box end-->
-                   
-                  </div>
-              </div>
-          </footer>
-          <!--footer end  -->	
-      </div>
-      <!-- column-wrapper -->	
-  </div>
-  <!--content end-->	
-  <!--share-wrapper-->
-  <div class="share-wrapper">
-      <div class="share-container fl-wrap  isShare"></div>
-  </div>
-  <!--share-wrapper end-->
-</div>
+              <div class="col">
+               <div class="">
+                 <small>to</small>
+                 <address class="m-t-5 m-b-5">
+                    <strong class="text-inverse">Company Name</strong><br>
+                    Street Address<br>
+                    City, Zip Code<br>
+                    Phone: (123) 456-7890<br>
+                    Fax: (123) 456-7890
+                 </address>
+                </div>
+             </div>
+             <div class="col">
+               <div class="">
+                 <small>Invoice / July period</small>
+                 <div class=""><b>August 3,2012</b></div>
+                 <div class="invoice-detail">
+                    #0000123DSS<br>
+                    Services Product
+                 </div>
+               </div>
+             </div>
+            </div>
+          </div>
+         <div class="card-body">
+           <div class="table-responsive">
+             <table class="table table-invoice">
+                <thead>
+                   <tr>
+                      <th>TASK DESCRIPTION</th>
+                      <th class="text-center" width="10%">RATE</th>
+                      <th class="text-center" width="10%">HOURS</th>
+                      <th class="text-right" width="20%">LINE TOTAL</th>
+                   </tr>
+                </thead>
+                <tbody>
+                   <tr>
+                      <td>
+                         <span class="text-inverse">Website design &amp; development</span><br>
+                         <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis arcu.</small>
+                      </td>
+                      <td class="text-center">$50.00</td>
+                      <td class="text-center">50</td>
+                      <td class="text-right">$2,500.00</td>
+                   </tr>
+                   <tr>
+                      <td>
+                         <span class="text-inverse">Branding</span><br>
+                         <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis arcu.</small>
+                      </td>
+                      <td class="text-center">$50.00</td>
+                      <td class="text-center">40</td>
+                      <td class="text-right">$2,000.00</td>
+                   </tr>
+                   <tr>
+                      <td>
+                         <span class="text-inverse">Redesign Service</span><br>
+                         <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis arcu.</small>
+                      </td>
+                      <td class="text-center">$50.00</td>
+                      <td class="text-center">50</td>
+                      <td class="text-right">$2,500.00</td>
+                   </tr>
+                </tbody>
+             </table>
+          </div>
+
+          <div class="row bg-light align-items-center m-0">
+            <div class="col col-auto p-4">
+               <p class="mb-0">SUBTOTAL</p>
+               <h4 class="mb-0">$4,500.00</h4>
+            </div>
+            <div class="col col-auto p-4">
+               <i class="bi bi-plus-lg text-muted"></i>
+            </div>
+            <div class="col col-auto me-auto p-4">
+               <p class="mb-0">PAYPAL FEE (5.4%)</p>
+               <h4 class="mb-0">$108.00</h4>
+            </div>
+            <div class="col bg-primary col-auto p-4">
+             <p class="mb-0 text-white">TOTAL</p>
+             <h4 class="mb-0 text-white">$4508.00</h4>
+            </div>
+          </div><!--end row-->
+
+          <hr>
+        <!-- begin invoice-note -->
+        <div class="my-3">
+         * Make all cheques payable to [Your Company Name]<br>
+         * Payment is due within 30 days<br>
+         * If you have any questions concerning this invoice, contact  [Name, Phone Number, Email]
+        </div>
+      <!-- end invoice-note -->
+         </div>
+
+         <div class="card-footer py-3 bg-transparent">
+             <p class="text-center mb-2">
+               GRACIAS POR REALIZAR SU ORDEN DE COMPRA
+             </p>
+             <p class="text-center d-flex align-items-center gap-3 justify-content-center mb-0">
+                <span class=""><i class="bi bi-globe"></i> www.domain.com</span>
+                <span class=""><i class="bi bi-telephone-fill"></i> T:+11-0462879</span>
+                <span class=""><i class="bi bi-envelope-fill"></i> info@example.com</span>
+             </p>
+         </div>
+        </div>
+           
+
+        </div>
+        <!-- end page content-->
+       </div>
+       
+
+
+       <!--Start Back To Top Button-->
+           <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+       <!--End Back To Top Button-->
+
+
+
+    
+
+   </div>
+<!--end wrapper-->
+
+
 
 
 {% endblock %}
+
+
+<div id="wrapper">
+    <!-- content -->	
+    <div class="content">
+        <!-- column-image  -->	
+        <div class="column-image">
+          <div class="bg"  data-bg="{% static "img/5.jpg" %}" ></div>  
+            <div class="overlay"></div>
+            <div class="column-title">
+              <img src="{% static 'img/logo_flor.png' %} " width=350px>
+                <h2>{% trans "Payment Done" %}</h2>
+                <p>"{% trans "Your dream trip, its every closer"%}"</p>
+            </div>
+            <div class="overlay"></div>
+            <div class="fixed-column-dec"></div>
+        </div>
+        <!-- column-image end  -->	
+        <!-- column-wrapper -->	
+        <div class="column-wrapper ">
+  <!--scroll-nav-wrap -->	
+            
+                              
+            <section id="sec3">
+                <div class="container small-container">
+                    <div class="section-title fl-wrap">
+                        <h3>{% trans "Your payment reservation for Centro Cultural Isla Floreana was successful" %}</h3>
+                       <p> {% trans "Your payment reservation has been processed successfully." %}</p>
+                       <p> "{% trans "THANKS FOR VISIT US" %}"</p>
+                        
+                   
+                </div>
+            </section>
+            <!--section end  -->	
+            <!--footer -->			
+            <footer class="min-footer fl-wrap content-animvisible">
+                <div class="container small-container">
+                    <div class="footer-inner fl-wrap">
+                        <!-- policy-box-->
+                        <div class="policy-box">
+                          <span>&#169; Powered by SmartQuail, Inc / Design by Edward Cooper  </span>
+                        </div>
+                        <!-- policy-box end-->
+                     
+                    </div>
+                </div>
+            </footer>
+            <!--footer end  -->	
+        </div>
+        <!-- column-wrapper -->	
+    </div>
+    <!--content end-->	
+    <!--share-wrapper-->
+    <div class="share-wrapper">
+        <div class="share-container fl-wrap  isShare"></div>
+    </div>
+    <!--share-wrapper end-->
+  </div>
+  
