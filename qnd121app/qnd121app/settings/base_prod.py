@@ -3,6 +3,8 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+
+
 #prueba
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,6 +28,10 @@ if SECRET_KEY is None:
 INSTALLED_APPS = [
    
     "unfold",  # before django.contrib.admin
+
+    #'webapp',
+
+
     "unfold.contrib.filters",  # optional, if special filters are needed
     "unfold.contrib.forms",  # optional, if special form elements are needed
     "unfold.contrib.inlines",  # optional, if special inlines are needed
@@ -33,18 +39,24 @@ INSTALLED_APPS = [
     "unfold.contrib.guardian",  # optional, if django-guardian package is used
     "unfold.contrib.simple_history",
 
-    'parler',
+    'shop',
+    'orders',
+    'payment',
+    'coupons',
+    'usuarios',
+
+   
     'django.contrib.contenttypes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
 
 
 
-    'core',
+    #'parler',
+    #'core',
     'wagtail',
     'wagtailmedia',
     "wagtail_modeladmin",
@@ -69,6 +81,9 @@ INSTALLED_APPS = [
 
 
 
+
+
+
    
     #'subscription',
 
@@ -85,9 +100,6 @@ INSTALLED_APPS = [
     'boto3',
     'rest_framework',
     'ckeditor',
-    'wagtail.contrib.settings',
-    "wagtail_ai",
-
     'localflavor',
    
     'jquery',
@@ -96,12 +108,7 @@ INSTALLED_APPS = [
     'bootstrap5',
 
     'bootstrap_datepicker_plus',
-     "webapp",
-    'usuarios', 
-    'shop',
-    'orders',
-    'payment',
-    'coupons',
+
     #WEBAPP
     #'wagtail_modeltranslation',
     #'wagtail_modeltranslation.makemigrations',
@@ -111,179 +118,9 @@ INSTALLED_APPS = [
 ]
 
 
-from django.templatetags.static import static
-from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
 
-UNFOLD = {
-    "SITE_TITLE": "AGROSILMA",
-    "SITE_HEADER": "MEDDES",
-    "SITE_SUBHEADER": "Centro de rehabilitación integral",
 
-    "SITE_URL": "/",
-    # "SITE_ICON": lambda request: static("icon.svg"),  # both modes, optimise for 32px height
-    "SITE_ICON": {
-        "light": lambda request: static("img/logo_test.png"),
-        "dark": lambda request: static("img/logo_test.png"),
-    },
-    "SITE_LOGO": {
-        "light": lambda request: static("img/logo_test.png"),
-        "dark": lambda request: static("img/logo_test.png"),
-    },
-    "SITE_SYMBOL": "speed",
-    "SITE_FAVICONS": [
-        {
-            "rel": "icon",
-            "sizes": "32x32",
-            "type": "image/svg+xml",
-            "href": lambda request: static("img/logo_test.png"),
-        },
-    ],
-    "SHOW_HISTORY": True,
-    "SHOW_VIEW_ON_SITE": True,
-    "SHOW_BACK_BUTTON": False,
-    
-    "ENVIRONMENT": "Production.environment_callback",
-    "THEME": "dark",
-    "LOGIN": {
-        "image": lambda request: static("img/BG.jpg"),
-       # "redirect_after": lambda request: reverse_lazy("admin:usuarios_changelist"),
-    },
-    "STYLES": [
-        lambda request: static("css/style.css"),
-    ],
-    "SCRIPTS": [
-        lambda request: static("js/script.js"),
-    ],
-    "BORDER_RADIUS": "6px",
-    "COLORS": {
-        "base": {
-            "50": "0, 180, 81",
-            "100": "243 244 246",
-            "200": "229 231 235",
-            "300": "209 213 219",
-            "400": "240 159 3",
-            "500": "255 227 0",
-            "600": "240 159 3",
-            "700": "223 189 4",
-            "800": "106 63 3",
-            "900": "34 18 0",
-            "950": "3 7 18",
-        },
-        "primary": {
-            "50": "250 245 255",
-            "100": "243 232 255",
-            "200": "233 213 255",
-            "300": "216 180 254",
-            "400": "192 132 252",
-            "500": "206 137 5",
-            "600": "58 128 0",
-            "700": "126 34 206",
-            "800": "107 33 168",
-            "900": "88 28 135",
-            "950": "59 7 100",
-        },
-        "font": {
-            "subtle-light": "var(--color-base-500)",  # text-base-500
-            "subtle-dark": "var(--color-base-400)",  # text-base-400
-            "default-light": "var(--color-base-600)",  # text-base-600
-            "default-dark": "var(--color-base-300)",  # text-base-300
-            "important-light": "var(--color-base-900)",  # text-base-900
-            "important-dark": "var(--color-base-100)",  # text-base-100
-        },
-    },
-    "EXTENSIONS": {
-        "modeltranslation": {
-            "flags": {
-                "en": "🇬🇧",
-                "fr": "🇫🇷",
-                "nl": "🇧🇪",
-            },
-        },
-    },
- "SIDEBAR": {
-        "show_search": True,
-        "show_all_applications": True,
-        "navigation": [
-            {
-                "title": _("Gestión de Usuarios"),
-                "separator": True,
-                "collapsible": True,
-                "items": [
-                    {
-                        "title": _("Usuarios"),
-                        "icon": "people",
-                        "link": reverse_lazy("admin:auth_user_changelist"),
-                    },
-                    {
-                        "title": _("Grupo de Usuarios"),
-                        "icon": "groups",
-                        "link": reverse_lazy("admin:auth_group_changelist"),
-                    },
-                ],
-            },
-            {
-                "title": _("Bodega"),
-                "separator": True,
-                "collapsible": True,
-                "items": [
-                    {
-                        "title": _("Categorias de productos"),
-                        "icon": "package",
-                        "link": reverse_lazy("admin:shop_category_changelist"),
-                    },
-                    {
-                        "title": _("Item de productos"),
-                        "icon": "package",
-                        "link": reverse_lazy("admin:shop_product_changelist"),
-                    },
-                ],
-            },
-            {
-                "title": _("Ventas"),
-                "separator": True,
-                "collapsible": True,
-                "items": [
-                    {
-                        "title": _("Ordenes de Pedidos"),
-                        "icon": "payment",
-                        "link": reverse_lazy("admin:orders_order_changelist"),
-                    },
 
-                ],
-            },
-
-            {
-                "title": _("Creditos"),
-                "separator": True,
-                "collapsible": True,
-                "items": [
-                    {
-                        "title": _("Descuentos"),
-                        "icon": "money",
-                        "link": reverse_lazy("admin:coupons_coupon_changelist"),
-                    },
-
-                ],
-            },
-        ],
-    },
- 
-    "MENU": [
-        {
-            "title": _("Dashboard"),
-            "icon": "dashboard",
-            "link": reverse_lazy("admin:index"),
-            "permission": lambda request: request.user.is_superuser,
-        },
-        {
-            "title": _("Users"),
-            "icon": "people",
-            "link": reverse_lazy("admin:auth_user_changelist"),
-        },
-    ],
-
-}
 
 
 
