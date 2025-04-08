@@ -28,7 +28,7 @@ from django.contrib.auth import views as auth_views
 #from usuarios.views import user_login
 
 
-urlpatterns = i18n_patterns(
+urlpatterns = [
 
     path('analytics/', admin.site.urls),
    # path('baton/', include('baton.urls')),
@@ -69,7 +69,7 @@ urlpatterns = i18n_patterns(
 
    
 
-  )  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+  ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
 
 
 
