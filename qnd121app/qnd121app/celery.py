@@ -18,6 +18,6 @@ app.autodiscover_tasks()
 
 # Un ejemplo de cómo se podría configurar un backend de resultados y un broker si fuera necesario:
 app.conf.update(
-     broker_url='redis://localhost:6379/0',
-     result_backend='redis://localhost:6379/0',
+     broker_url='amqp://support:ms95355672@rabbitmq:5672//',
+     result_backend='redis://redis:6379/0',
  )
