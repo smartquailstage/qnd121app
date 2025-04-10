@@ -306,7 +306,7 @@ REDIS_HOST=os.environ.get('REDIS_HOST')
 REDIS_PORT=os.environ.get('REDIS_PORT')
 REDIS_DB =os.environ.get('REDIS_DB')  
 
-CELERY_BROKER_URL = 'pyamqp://support:ms95355672@rabbitmq:5672//'
+CELERY_BROKER_URL = 'amqp://support:ms95355672@rabbitmq:5672//'
 #CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL')
 CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 CELERY_ACCEPT_CONTENT = ['application/json']
