@@ -29,9 +29,9 @@ ALLOWED_HOSTS = ['127.0.0.1','localhost','agrosylma.smartquail.io', '146.190.0.4
 #]
 
 
-#CSRF_COOKIE_DOMAIN="meddes.smartquail.io"
-#CSRF_COOKIE_SECURE = True
-#CSRF_TRUSTED_ORIGINS = ['https://www.smartquail.io','https://146.190.164.22']
+CSRF_COOKIE_DOMAIN="agrosylma.smartquail.io"
+CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ['https://agrosylma.smartquail.io/','https://146.190.0.47']
 CORS_ALLOWED_ORIGINS = [
     'https://agrosylma.smartquail.io/asmerp/','https://agrosylma.smartquail.io/pedidos/ingresar'
     # Otros orígenes permitidos si los hay
